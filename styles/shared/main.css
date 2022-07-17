@@ -55,9 +55,60 @@
   url('../../assets/fonts/roboto/roboto-v30-latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../assets/icons/MaterialIcons-Regular.ttf'); /* For IE6-8 */
+  src: local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url('../../assets/icons/MaterialIcons-Regular.ttf') format('truetype');
+}
+
+/*===========================================================================================
+        Material Icons
+=============================================================================================*/
+.material-icons {
+  font-family: 'Material Icons', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.5rem;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  color: var(--txt-light);
+  transition: color 150ms ease-in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.material-icons:hover {
+  color: var(--txt-primary);
+  cursor: pointer;
+}
+
 /*===========================================================================================
         Globals
 =============================================================================================*/
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --clr-primary: #C5A26E;
 
@@ -70,10 +121,6 @@
   --txt-light: #CECACA;
   --txt-light-highlight: #E4E4E4;
   --txt-dark: #070707;
-}
-
-h1, h2, h3, h4, h5 {
-  margin-top: 500px;
 }
 
 /*===========================================================================================
@@ -96,7 +143,7 @@ h2 {
 
 h3 {
   font-family: "Playfair Display", serif;
-  font-size: 4.236rem;
+  font-size: 5.063rem;
   color: var(--txt-primary);
   letter-spacing: 0;
   line-height: 1.09em;
@@ -118,14 +165,140 @@ h5 {
   line-height: 1;
 }
 
+/*===========================================================================================
+        Helper
+=============================================================================================*/
+.mobile-only {
+  display: none;
+}
 
+.container {
+  padding: 0 10vw;
+}
 
+/*===========================================================================================
+        Header
+=============================================================================================*/
+header {
+  height: 4.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  transition: background-color 200ms, height 200ms;
+  text-transform: uppercase;
+  z-index: 10;
+}
 
+.header__scroll {
+  height: 4.063rem;
+  background-color: rgba(7, 7, 7, 0.8);
+  backdrop-filter: blur(5px);
+}
 
+.logo {
+  height: 100%;
+}
 
+.logo img {
+  height: inherit;
+  padding: 0.625rem;
+}
 
+.nav-container, .navigation {
+  display: flex;
+  gap: 3.125rem;
+}
 
+.navigation li {
+  text-align: center;
+}
 
+.navigation__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.313rem;
+  transition: color 200ms ease-in-out;
+  white-space: nowrap;
+  position: relative;
+  text-decoration: none;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: var(--txt-light);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.navigation__link:hover, .navigation__link.active {
+  color: var(--txt-primary);
+}
+
+.navigation__link.active {
+  font-weight: 700;
+}
+
+.navigation__close {
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  transition: color 200ms ease-in-out;
+}
+
+/*===========================================================================================
+        Media Queries
+=============================================================================================*/
+
+@media (max-width: 1100px) {
+  .mobile-only {
+    display: flex;
+  }
+
+  .nav-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  header nav {
+    z-index: 200;
+    width: clamp(9.375rem, 30vw, 50vw);
+    height: 100vh;
+    background-color: var(--bg-dark);
+    transform: translateX(-100%);
+    display: flex;
+    justify-content: center;
+  }
+
+  [data-mobile-menu="open"] {
+    transition: transform 200ms ease-in-out;
+    transform: translateX(0);
+  }
+
+  .navigation {
+    padding-top: 3.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navigation li {
+    width: 100%;
+    padding: 0 3rem;
+  }
+
+  .content-blur::after {
+    content: '';
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(7, 7, 7, 0.5);
+  }
+}
 
 
 

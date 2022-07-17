@@ -7,9 +7,35 @@
   
   <title>Home</title>
   <link rel="stylesheet" type="text/css" href="./styles/shared/reset.css">
-  <link rel="stylesheet" type="text/css" href="styles/shared/main.css">
+  <link rel="stylesheet" type="text/css" href="./styles/shared/main.css">
 </head>
 <body>
-
+  <div data-intersection-observer-scroll></div>
+  <header class="container" data-header>
+    <div class="mobile-only"></div>
+    <a class="logo" href="#">
+      <img src="assets/images/logo_light.svg" alt="Logo">
+    </a>
+    <div class="nav-container">
+      <nav data-mobile-menu="closed">
+        <ul class="navigation">
+          <li><a href="home.html" class="navigation__link active">Home</a></li>
+          <li><a href="about-us.html" class="navigation__link">Über uns</a></li>
+          <li><a href="menu.html" class="navigation__link">Speisekarte</a></li>
+          <li><a href="#" class="navigation__link">Galerie</a></li>
+        </ul>
+        <span class="material-icons mobile-only navigation__close"
+              data-mobile-menu-toggle
+              aria-label="Menü schließen"
+              tabindex="0">close</span>
+      </nav>
+    </div>
+    <span class="mobile-only material-icons"
+          data-mobile-menu-toggle
+          aria-label="Menü"
+          tabindex="0">menu</span>
+  </header>
+  
+  <script type="text/javascript" src="scripts/shared/main.js"></script>
 </body>
 </html>
