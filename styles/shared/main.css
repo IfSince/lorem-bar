@@ -407,6 +407,14 @@ header {
     flex-wrap: wrap;
   }
 
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .flex-wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
   /*=============== Navigation Menu ===============*/
   .nav-container {
     position: absolute;
