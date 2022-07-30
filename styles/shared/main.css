@@ -121,6 +121,8 @@
   --txt-light: #CECACA;
   --txt-light-highlight: #E4E4E4;
   --txt-dark: #070707;
+
+  --content-padding: 10vw;
 }
 
 /*===========================================================================================
@@ -128,7 +130,7 @@
 =============================================================================================*/
 h1 {
   font-family: "Playfair Display", serif;
-  font-size: 6.854rem;
+  font-size: clamp(3rem, 8vw, 6.854rem);
   color: var(--txt-primary);
   letter-spacing: 0;
   line-height: 1.11em;
@@ -150,7 +152,7 @@ h3 {
 }
 
 h4 {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.618rem;
   color: var(--txt-dark);
   letter-spacing: 0.01em;
@@ -158,10 +160,19 @@ h4 {
 }
 
 h5 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
   color: var(--txt-light-highlight);
   letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.text-bold, .btn {
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(1rem, 1.75vw, 1.125rem);
+  font-weight: bold;
+  letter-spacing: clamp(0.08em, 0.2vw, 0.15em);
+  text-transform: uppercase;
 }
 
 /*===========================================================================================
@@ -172,7 +183,31 @@ h5 {
 }
 
 .container {
-  padding: 0 10vw;
+  padding: 0 var(--content-padding);
+}
+
+.btn {
+  border-radius: 0.125rem;
+  padding: clamp(1rem, 3.5vw, 1.5rem) clamp(1.5rem, 3vw, 2.25rem);
+  border: 0.125rem solid var(--clr-primary);
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--clr-primary);
+  color: var(--txt-dark);
+}
+
+.btn-primary:hover {
+  border: 0.125rem solid var(--clr-primary);
+  background-color: var(--bg-dark-opacity);
+  color: var(--txt-primary);
+}
+
+.btn-secondary {
+  background-color: var(--bg-dark);
+  color: var(--txt-primary);
 }
 
 /*===========================================================================================
@@ -247,9 +282,88 @@ header {
 }
 
 /*===========================================================================================
+        Hero
+=============================================================================================*/
+.hero {
+  padding-top: 6.25rem;
+  width: 100%;
+  display: flex;
+  background-color: var(--bg-dark);
+  z-index: 2;
+  position: relative;
+  min-height: var(--hero-min-height);
+}
+
+.hero-container {
+  display: flex;
+  max-height: 100%;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--content-gap);
+}
+
+.hero-container .hero__primary {
+  max-width: var(--header-max-width);
+  flex-grow: 1;
+  padding: 6.875rem 4.688rem 10.938rem 4.688rem;
+  height: fit-content;
+  background-color: var(--bg-dark-opacity);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(2.25rem, 8vw, 3.75rem);
+  border: 0.125rem solid var(--clr-primary);
+  border-radius: 0.125rem;
+}
+
+.hero-container .hero__secondary {
+  max-width: 35.313rem;
+  flex-grow: 2;
+  align-self: flex-end;
+  background-color: var(--clr-primary);
+  padding:
+          clamp(3.125rem, 10vw, 4.688rem)
+          clamp(3.75rem, 10vw, 6.25rem)
+          clamp(3.125rem, 10vw, 4.688rem)
+          4.375rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--hero-min-height);
+  z-index: -1;
+}
+
+.hero__background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.hero__background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: var(--bg-dark);
+  background: var(--hero-bg-gradient);
+}
+
+
+/*===========================================================================================
         Media Queries
 =============================================================================================*/
-
 @media (max-width: 1000px) {
   /*=============== Helper ===============*/
   .mobile-only {
@@ -303,6 +417,17 @@ header {
     width: 100vw;
     height: 100vh;
     background-color: var(--bg-dark-opacity);
+  }
+
+  /*=============== Hero ===============*/
+  .hero {
+    padding-left: 0;
+  }
+
+  .hero-container .hero__primary {
+    width: 100%;
+    padding: 5rem 1.875rem 4.688rem 10vw;
+    border-left: none;
   }
 }
 

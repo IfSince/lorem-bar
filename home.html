@@ -8,6 +8,7 @@
   <title>Home</title>
   <link rel="stylesheet" type="text/css" href="./styles/shared/reset.css">
   <link rel="stylesheet" type="text/css" href="./styles/shared/main.css">
+  <link rel="stylesheet" type="text/css" href="./styles/home.css">
 </head>
 <body>
   <div data-intersection-observer-scroll></div>
@@ -42,6 +43,37 @@
           aria-label="Menü"
           tabindex="0">menu</span>
   </header>
+  
+  <section class="container hero">
+    <div class="hero-container">
+      <div class="hero__primary">
+        <h1>Cocktailbar & Restaurant</h1>
+        <button class="btn btn-primary">Jetzt reservieren</button>
+      </div>
+      <div class="hero__secondary">
+        <div class="content text-dark">
+          <span class="text-bold">Öffnungszeiten</span>
+          <ul>
+            <li><span>Mo - Do</span><span>11:30 - 00:00</span></li>
+            <li><span>Fr</span><span>11:30 - 00:00</span></li>
+            <li><span>Sa</span><span>11:30 - 00:00</span></li>
+            <li><span>So</span><span>11:30 - 00:00</span></li>
+          </ul>
+        </div>
+        <button class="btn btn-secondary">Zur Adresse</button>
+      </div>
+    </div>
+    <picture class="hero__background">
+      <source media="(min-width: 800px)"
+              srcset="./assets/images/bar_1/bar_1@05x.jpg 1000w,
+                        ./assets/images/bar_1/bar_1.jpg 2000w,
+                        ./assets/images/bar_1/bar_1@2x.jpg 4000w">
+      <source srcset="./assets/images/bar_1/bar_1_mobile@05x.jpg 500w,
+                        ./assets/images/bar_1/bar_1_mobile.jpg 1000w,
+                        ./assets/images/bar_1/bar_1_mobile@2x.jpg 2000w">
+      <img class="img-cover" src="./assets/images/bar_1/bar_1.jpg" alt="Hintergrundbild der Bar">
+    </picture>
+  </section>
   
   <script type="text/javascript" src="./scripts/shared/main.js"></script>
 </body>

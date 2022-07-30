@@ -1,0 +1,74 @@
+/*===========================================================================================
+        Hero
+=============================================================================================*/
+.hero {
+  --hero-min-height: 54.375rem;
+}
+
+.hero-container {
+  --content-gap: 5rem;
+}
+
+.hero-container .hero__primary {
+  --header-max-width: 55.625rem;
+}
+
+.hero-container .hero__secondary {
+  justify-content: center;
+  gap: clamp(2.25rem, 8vw, 3.75rem);
+}
+
+.hero__secondary .btn {
+  align-self: flex-end;
+}
+
+.hero__secondary .content {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hero__secondary .content ul {
+  display: flex;
+  gap: 0.5rem;
+  font-family: 'Roboto', sans-serif;
+  flex-direction: column;
+}
+
+.hero__secondary .content ul li {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.hero__background {
+  --hero-bg-gradient: linear-gradient(
+          180deg,
+          var(--bg-dark) 0%,
+          rgba(7,7,7,0.5) 20%,
+          rgba(7,7,7,0.5) 60%,
+          rgba(7,7,7,0.7) 75%,
+          var(--bg-dark) 90%
+  )
+}
+
+/*===========================================================================================
+        Media Queries
+=============================================================================================*/
+
+@media (max-width: 1000px) {
+  .hero-container .hero__secondary {
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - var(--content-padding));
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: var(--content-padding);
+    align-self: unset;
+  }
+
+  .hero__secondary .btn {
+    align-self: center;
+  }
+}
