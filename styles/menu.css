@@ -61,9 +61,17 @@
 .content-section__background {
   position: absolute;
   height: max(37.5rem, 50%);
+  z-index: 1;
+}
+
+.flex-wrap .content-section__background {
   top: 0;
   left: 0;
-  z-index: 1;
+}
+
+.flex-wrap-reverse .content-section__background {
+  top: 0;
+  right: 0;
 }
 
 
