@@ -1,0 +1,58 @@
+/*===========================================================================================
+        Hero
+=============================================================================================*/
+.hero-container {
+  --grid-columns: 1fr;
+  --grid-rows: 1fr;
+  padding-bottom: 2.5rem;
+}
+
+.hero__primary {
+  --hero__primary-grid-column: 1;
+}
+
+.hero__primary-text {
+  max-width: 48.125rem;
+}
+
+.hero__primary-text .text-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.875rem;
+  color: var(--txt-light);
+}
+
+.hero__primary-text .text-container .line {
+  border-top: 0.125rem solid var(--clr-primary);
+  min-width: 4.375rem;
+  margin-top: 0.625rem;
+}
+
+/*===========================================================================================
+        Media Queries
+=============================================================================================*/
+@media (max-width: 1300px) {
+  /*=============== Hero ===============*/
+  .hero-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .hero__primary {
+    grid-row: 1;
+  }
+}
+
+
+@media (max-width: 1000px) {
+  /*=============== Hero ===============*/
+
+  .hero__primary-text .text-container .line {
+    display: none;
+  }
+
+  .hero__primary {
+    border-left: none;
+    width: 100%;
+  }
+}
