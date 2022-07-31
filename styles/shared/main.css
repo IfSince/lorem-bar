@@ -525,6 +525,39 @@ header {
 }
 
 /*===========================================================================================
+        Footer
+=============================================================================================*/
+
+.footer {
+  border-top: 0.063rem solid var(--clr-primary);
+  background-color: var(--bg-dark);
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  color: var(--txt-light);
+  gap: 0.938rem;
+}
+
+.footer ul {
+  flex: 1 1 0px;
+  max-width: 10rem;
+}
+
+.footer ul li {
+  margin-top: 0.5rem;
+  white-space: nowrap;
+}
+
+.footer h4 {
+  color: var(--txt-primary);
+  font-weight: unset;
+}
+
+
+/*===========================================================================================
         Media Queries
 =============================================================================================*/
 @media (max-width: 1000px) {
