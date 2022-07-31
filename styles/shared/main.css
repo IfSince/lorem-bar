@@ -202,6 +202,26 @@ ul, span, p, input, select {
   display: block;
 }
 
+.shadowed::before, .shadowed::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.shadowed::before {
+  background: var(--bg-dark);
+  background: linear-gradient(90deg, var(--bg-dark) 0%, rgba(7,7,7,0) 50%, var(--bg-dark) 100%);
+}
+
+.shadowed::after {
+  background: var(--bg-dark);
+  background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(7,7,7,0) 50%, var(--bg-dark) 100%);
+}
+
 /*=============== Layout ===============*/
 .container {
   padding: 0 var(--content-padding);
@@ -209,12 +229,44 @@ ul, span, p, input, select {
 
 .section-md {
   padding-top: 6.25rem;
-  padding-bottom: clamp(5rem, 15vw, 10rem);
+  padding-bottom: clamp(5rem, 10vw, 10rem);
   background-color: var(--bg-dark);
 }
 
 .section-md h3 {
   max-width: 56.25rem;
+}
+
+.content-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4.688rem;
+}
+
+.content-section .image-container {
+  max-width: var(--image-size);
+  max-height: var(--image-size);
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.content-section .text-container {
+  color: var(--txt-light);
+  max-width: var(--text-container-size);
+  position: relative;
+}
+
+.content-section .text-container .text-md {
+  max-width: max(85%, calc(var(--text-container-size) - 12.5rem));
+  display: flex;
+  flex-direction: column;
+  gap: clamp(25px, 2vw, 2.188rem);
+  margin: 1rem 0 3.75rem;
 }
 
 /*=============== Buttons ===============*/
@@ -427,6 +479,50 @@ header {
   font-size: 1rem;
 }
 
+/*===========================================================================================
+        Address
+=============================================================================================*/
+.address h3 {
+  margin-bottom: 1.875rem;
+}
+
+.address .text-bold {
+  letter-spacing: 0.01em;
+  text-transform: unset;
+}
+
+.address__header {
+  color: var(--clr-primary);
+  opacity: 50%;
+}
+
+.address ul {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 10.625rem;
+}
+
+.address ul li {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.separator {
+  border: none;
+  border-bottom: 0.125rem solid var(--clr-primary);
+  opacity: 50%;
+  width: 100%;
+  margin: 1.875rem 0;
+}
 
 /*===========================================================================================
         Media Queries
@@ -443,10 +539,58 @@ header {
 
   .flex-wrap {
     flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   .flex-wrap-reverse {
     flex-wrap: wrap-reverse;
+    justify-content: flex-start;
+  }
+
+  .mobile-bordered {
+    position: relative;
+    z-index: 1;
+  }
+
+  .flex-wrap-reverse > .mobile-bordered {
+    padding: 3.125rem 0 3.125rem 1.563rem;
+  }
+
+  .flex-wrap > .mobile-bordered {
+    padding: 3.125rem 0 3.125rem;
+  }
+
+  .mobile-bordered::before, .mobile-bordered::after {
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .mobile-bordered::before {
+    border: 0.125rem solid var(--clr-primary);
+    background: none;
+    width: calc(100% - 1.875rem);
+  }
+
+  .flex-wrap > .mobile-bordered::before {
+    left: 1.875rem;
+  }
+
+  .mobile-bordered::after {
+    width: 100%;
+    background: var(--bg-dark);
+    background: var(--txt-bg-gradient);
+  }
+
+  .flex-wrap-reverse > .mobile-bordered::after {
+    transform: translateX(0.625rem);
+  }
+
+  .flex-wrap > .mobile-bordered::after {
+    transform: translateX(-0.625rem);
   }
 
   /*=============== Navigation Menu ===============*/
@@ -518,7 +662,7 @@ header {
   }
 
   .booking__form input {
-    max-width: 18.75rem;
+    max-width: 25rem;
     width: 100%;
   }
 }
