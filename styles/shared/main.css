@@ -465,14 +465,13 @@ header {
   background-color: var(--bg-dark);
   z-index: 2;
   position: relative;
-  min-height: 54.375rem;
 }
 
 .hero-container {
   display: grid;
   row-gap: 4rem;
   grid-template-columns: var(--grid-columns);
-  grid-template-rows: 1fr 6.25rem;
+  grid-template-rows: var(--grid-rows, 1fr 6.25rem);
 }
 
 .hero__primary, .hero__primary-text {
