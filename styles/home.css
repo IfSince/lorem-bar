@@ -1,21 +1,25 @@
 /*===========================================================================================
         Hero
 =============================================================================================*/
-.hero {
-  --hero-min-height: 54.375rem;
-}
 
 .hero-container {
-  --content-gap: 5rem;
+  --grid-columns: 2fr 1fr;
 }
 
-.hero-container .hero__primary {
-  --header-max-width: 55.625rem;
+.hero__primary {
+  --hero__primary-grid-column: 1 / 3;
+  max-width: 890px;
+  padding: 6.875rem 4.688rem 10.938rem 4.688rem;
+  background-color: var(--bg-dark-opacity);
 }
 
-.hero-container .hero__secondary {
-  justify-content: center;
-  gap: clamp(2.25rem, 8vw, 3.75rem);
+.hero__secondary {
+  --hero__secondary-grid-column: 2;
+  max-width: 565px;
+  padding: clamp(3.125rem, 10vw, 4.688rem)
+           clamp(3.75rem, 10vw, 6.25rem)
+           clamp(3.125rem, 10vw, 4.688rem)
+           4.375rem;
 }
 
 .hero__secondary .btn {
@@ -27,29 +31,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-
-.hero__secondary .content ul {
-  display: flex;
-  gap: 0.5rem;
-  flex-direction: column;
-}
-
-.hero__secondary .content ul li {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.hero__background {
-  --hero-bg-gradient: linear-gradient(
-          180deg,
-          var(--bg-dark) 0%,
-          rgba(7,7,7,0.5) 20%,
-          rgba(7,7,7,0.5) 60%,
-          rgba(7,7,7,0.7) 75%,
-          var(--bg-dark) 90%
-  )
 }
 
 /*===========================================================================================
@@ -139,16 +120,30 @@
 /*===========================================================================================
         Media Queries
 =============================================================================================*/
+@media (max-width: 1200px) {
+  /*=============== Hero ===============*/
+  .hero-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .hero__primary {
+    grid-row: 1;
+  }
+
+  .hero__secondary {
+    grid-row: 2;
+    grid-column: 1 / 1;
+    justify-self: center;
+  }
+}
+
 @media (max-width: 1000px) {
   /*=============== Hero ===============*/
-  .hero__secondary {
-    justify-content: center;
-    align-items: center;
-    width: calc(100% - var(--content-padding));
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: var(--content-padding);
-    align-self: unset;
+  .hero__primary {
+    width: 100%;
+    padding: 5rem 1.875rem 4.688rem 10vw;
+    border-left: none;
   }
 
   .hero__secondary .btn {

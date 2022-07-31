@@ -1,0 +1,82 @@
+/*===========================================================================================
+        Hero
+=============================================================================================*/
+.hero-container {
+  --grid-columns: 2fr repeat(5, 1fr);
+}
+
+.hero__primary {
+  --hero__primary-grid-column: 1 / span 6;
+}
+
+.hero__primary-text {
+  max-width: 48.125rem;
+}
+
+.hero__primary-text .text-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.875rem;
+  color: var(--txt-light);
+}
+
+.hero__primary-text .text-container .line {
+  border-top: 0.125rem solid var(--clr-primary);
+  min-width: 4.375rem;
+  margin-top: 0.625rem;
+}
+
+.hero__secondary {
+  --hero__secondary-grid-column: 5;
+  max-width: 33.125rem;
+
+  font-size: clamp(1.813rem, 5vw, 2.438rem);
+  letter-spacing: 0.07em;
+  font-weight: 700;
+  padding: 3.125rem 4.688rem 4.375rem 3.125rem;
+  white-space: nowrap;
+}
+
+/*===========================================================================================
+        Media Queries
+=============================================================================================*/
+@media (max-width: 1300px) {
+  /*=============== Hero ===============*/
+  .hero-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .hero__primary {
+    grid-row: 1;
+  }
+
+  .hero__secondary {
+    grid-row: 2;
+    grid-column: 1 / 1;
+    justify-self: center;
+  }
+}
+
+
+@media (max-width: 1000px) {
+  /*=============== Hero ===============*/
+  .hero__primary-text .text-container .line {
+    display: none;
+  }
+
+  .hero__primary {
+    border-left: none;
+    width: 100%;
+  }
+
+  .hero__secondary {
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - var(--content-padding));
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: var(--content-padding);
+    align-self: unset;
+  }
+}
