@@ -8,8 +8,80 @@
   <title>Über uns</title>
   <link rel="stylesheet" type="text/css" href="./styles/shared/reset.css">
   <link rel="stylesheet" type="text/css" href="styles/shared/main.css">
+  <link rel="stylesheet" type="text/css" href="styles/about_us.css">
 </head>
 <body>
-
+  <div data-intersection-observer-scroll></div>
+  <header class="container" data-header>
+    <div class="mobile-only"></div>
+    <a class="logo" href="#">
+      <img src="./assets/images/logo_light.svg" alt="Logo">
+    </a>
+    <div class="nav-container" data-mobile-menu="closed">
+      <div class="mobile-only menu-section">
+        <a class="logo" href="#">
+          <img src="./assets/images/logo_light.svg" alt="Logo">
+        </a>
+      </div>
+      <nav class="menu-section">
+        <ul class="navigation">
+          <li><a href="./home.html" class="navigation__link active">Home</a></li>
+          <li><a href="#" class="navigation__link">News</a></li>
+          <li><a href="./about-us.html" class="navigation__link">Über uns</a></li>
+          <li><a href="./menu.html" class="navigation__link">Menü</a></li>
+          <li><a href="#" class="navigation__link">Galerie</a></li>
+        </ul>
+        <span class="material-icons mobile-only navigation__close"
+              data-mobile-menu-toggle
+              aria-label="Menü schließen"
+              tabindex="0">close</span>
+      </nav>
+      <div class="mobile-only menu-section"></div>
+    </div>
+    <span class="mobile-only material-icons"
+          data-mobile-menu-toggle
+          aria-label="Menü"
+          tabindex="0">menu</span>
+  </header>
+  
+  <section class="container hero">
+    <div class="hero-container">
+      <div class="hero__primary">
+        <div class="hero__primary-text">
+          <h1>Über uns</h1>
+          <div class="text-container">
+            <div class="line"></div>
+            <p class="text-md">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+              labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+              et ea rebum. Stet clita kasd gubergren, no sea takimata
+            </p>
+          </div>
+          <a class="btn btn-primary" href="#booking">Jetzt reservieren</a>
+        </div>
+      </div>
+      <div class="hero__secondary">
+        <div class="content">
+          <ul>
+            <li>Unsere Leitwörter.</li>
+            <li>Tradition.</li>
+            <li>Perfektion.</li>
+            <li>Innovation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <picture class="hero__background">
+      <source media="(min-width: 800px)"
+              srcset="./assets/images/about_us/bar_3/bar_3@05x.jpg 1000w,
+                      ./assets/images/about_us/bar_3/bar_3.jpg 2000w,
+                      ./assets/images/about_us/bar_3/bar_3@2x.jpg 4000w">
+      <source srcset="./assets/images/about_us/bar_3/bar_3_mobile@05x.jpg 500w,
+                      ./assets/images/about_us/bar_3/bar_3_mobile.jpg 1000w,
+                      ./assets/images/about_us/bar_3/bar_3_mobile@2x.jpg 2000w">
+      <img class="img-cover" src="assets/images/about_us/bar_3/bar_3.jpg" alt="Hintergrundbild der Bar">
+    </picture>
+  </section>
+  
+  <script type="text/javascript" src="./scripts/shared/main.js"></script>
 </body>
 </html>

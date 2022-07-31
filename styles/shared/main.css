@@ -278,7 +278,7 @@ ul, span, p, input, select {
   max-width: max(85%, calc(var(--text-container-size) - 12.5rem));
   display: flex;
   flex-direction: column;
-  gap: clamp(25px, 2vw, 2.188rem);
+  gap: clamp(1.563rem, 2vw, 2.188rem);
   margin: 1rem 0 3.75rem;
 }
 
@@ -392,48 +392,64 @@ header {
 .hero {
   padding-top: 6.25rem;
   width: 100%;
-  display: flex;
   background-color: var(--bg-dark);
   z-index: 2;
   position: relative;
-  min-height: var(--hero-min-height);
+  min-height: 54.375rem;
 }
 
 .hero-container {
-  display: flex;
-  max-height: 100%;
-  width: 100%;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--content-gap);
+  display: grid;
+  row-gap: 4rem;
+  grid-template-columns: var(--grid-columns);
+  grid-template-rows: 1fr 6.25rem;
 }
 
-.hero-container .hero__primary {
-  max-width: var(--header-max-width);
-  flex-grow: 1;
-  padding: 6.875rem 4.688rem 10.938rem 4.688rem;
-  height: fit-content;
-  background-color: var(--bg-dark-opacity);
+.hero__primary, .hero__primary-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(2.25rem, 8vw, 3.75rem);
-  border: 0.125rem solid var(--clr-primary);
   border-radius: 0.125rem;
+  z-index: 2;
 }
 
-.hero-container .hero__secondary {
-  max-width: 35.313rem;
-  flex-grow: 2;
-  align-self: flex-end;
-  background-color: var(--clr-primary);
-  padding:
-          clamp(3.125rem, 10vw, 4.688rem)
-          clamp(3.75rem, 10vw, 6.25rem)
-          clamp(3.125rem, 10vw, 4.688rem)
-          4.375rem;
+.hero__primary {
+  grid-row: 1;
+  grid-column: var(--hero__primary-grid-column);
+  border: 0.125rem solid var(--clr-primary);
+  gap: clamp(2.25rem, 8vw, 3.75rem);
+}
+
+.hero__primary-text {
+  padding: 6.875rem 5rem 10.938rem 4.688rem;
+  background-color: var(--bg-dark-opacity);
+  gap: 2.5rem;
+}
+
+.hero__secondary {
+  width: 100%;
+  grid-row: 2;
+  grid-column: var(--hero__secondary-grid-column);
+  justify-self: end;
+  align-self: end;
   display: flex;
+  justify-content: center;
   flex-direction: column;
+  gap: clamp(2.25rem, 8vw, 3.75rem);
+  background-color: var(--clr-primary);
+  z-index: 3;
+}
+
+.hero__secondary ul {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+.hero__secondary li {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .hero__background {
@@ -441,7 +457,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--hero-min-height);
+  height: 54.375rem;
   z-index: -1;
 }
 
@@ -454,7 +470,14 @@ header {
   height: 100%;
   z-index: 10;
   background: var(--bg-dark);
-  background: var(--hero-bg-gradient);
+  background: linear-gradient(
+          180deg,
+          var(--bg-dark) 0%,
+          rgba(7,7,7,0.5) 20%,
+          rgba(7,7,7,0.5) 60%,
+          rgba(7,7,7,0.7) 75%,
+          var(--bg-dark) 90%
+  )
 }
 
 /*===========================================================================================
@@ -701,10 +724,20 @@ header {
     padding-left: 0;
   }
 
-  .hero-container .hero__primary {
+  .hero__primary-text {
     width: 100%;
     padding: 5rem 1.875rem 4.688rem 10vw;
     border-left: none;
+  }
+
+  .hero__secondary {
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - var(--content-padding));
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: var(--content-padding);
+    align-self: unset;
   }
 
   /*=============== Booking ===============*/
