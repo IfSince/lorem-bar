@@ -397,7 +397,7 @@ header {
   position: fixed;
   transition: background-color 200ms, height 200ms;
   text-transform: uppercase;
-  z-index: 10;
+  z-index: 20;
 }
 
 .header__scroll {
