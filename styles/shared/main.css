@@ -253,7 +253,7 @@ ul, span, p, input, select {
 
 .section-lg {
   padding-top: clamp(14.375rem, 6vw, 28.125rem);
-  padding-bottom: clamp(3.75rem, 6vw, 6.25rem);
+  padding-bottom: clamp(1rem, 6vw, 6.25rem);
   background-color: var(--bg-dark);
 }
 
@@ -310,11 +310,13 @@ ul, span, p, input, select {
   background: linear-gradient(
           180deg,
           var(--bg-dark) 0%,
-          rgba(7,7,7,0.7) 15%,
-          rgba(7,7,7,0.4) 25%,
+          var(--bg-dark) 5%,
+          rgba(7,7,7,0.8) 15%,
+          rgba(7,7,7,0.4) 30%,
           rgba(7,7,7,0.3) 40%,
           rgba(7,7,7,0.3) 60%,
-          var(--bg-dark) 90%
+          rgba(7,7,7,0.8) 75%,
+          var(--bg-dark) 95%
   )
 }
 
